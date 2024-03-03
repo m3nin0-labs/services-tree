@@ -1,0 +1,16 @@
+#
+# Copyright (C) 2024 Services Tree.
+#
+# Services Tree is free software; you can redistribute it and/or modify it
+# under the terms of the MIT License; see LICENSE file for more details.
+#
+
+version: "3"
+
+services:
+  services-tree-api:
+    image: servicestree/api:v0.1.0
+    build: .
+    container_name: services-tree-api
+    ports:
+      - "8000:8000"

@@ -1,0 +1,78 @@
+#
+# Copyright (C) 2024 Services Tree.
+#
+# Services Tree is free software; you can redistribute it and/or modify it
+# under the terms of the MIT License; see LICENSE file for more details.
+#
+
+.git
+*.gitignore
+
+*.mo
+*.pyc
+*.swp
+*.swo
+*.~
+
+.dockerignore
+Dockerfile
+docker-compose.yml
+docker-compose-dev.yml
+.invenio.private
+
+Procfile*
+
+# Ignore local virtualenv (if present)
+.venv/
+venv/
+certs
+
+# Ignore PyCharm project
+.idea/
+
+# Ignore development data folder
+data/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Python Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+*.db
+
+# Sphinx documentation
+docs/_build/

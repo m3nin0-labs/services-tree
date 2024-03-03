@@ -1,0 +1,20 @@
+#
+# Copyright (C) 2024 Services Tree.
+#
+# Services Tree is free software; you can redistribute it and/or modify it
+# under the terms of the MIT License; see LICENSE file for more details.
+#
+
+#
+# Service Tree Database
+#
+SQLALCHEMY_DATABASE_URI = "sqlite+pysqlite:///services-tree.db"
+
+
+#
+# CORS Configuration
+#
+[CORS]
+allow_origins = ["http://127.0.0.1:8000", "http://localhost:8000"]
+allow_methods = ["GET", "PUT", "POST", "DELETE"]
+allow_headers = ["*"]

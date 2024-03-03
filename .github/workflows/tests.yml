@@ -1,0 +1,59 @@
+#
+# Copyright (C) 2024 Services Tree.
+#
+# Services Tree is free software; you can redistribute it and/or modify it
+# under the terms of the MIT License; see LICENSE file for more details.
+#
+
+name: Package tests
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "0 3 * * 6"
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Reason"
+        required: false
+        default: "Manual trigger"
+
+jobs:
+  tests:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Run image
+      uses: abatilo/actions-poetry@v2
+      with:
+        poetry-version: "1.7.1"
+
+    - name: Configure poetry
+      run: |
+        poetry config virtualenvs.create false 
+
+    - name: Install dependencies
+      run: |
+        poetry install --with dev
+
+    - name: Run database migrations
+      run: |
+        alembic upgrade head
+  
+    - name: Test with pytest
+      run: |
+        pytest
