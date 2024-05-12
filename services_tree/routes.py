@@ -73,3 +73,16 @@ async def update(sid: UUID, document: ServiceModel) -> ServiceModel:
         ServiceModel: New service model registered.
     """
     return service.update(sid, document)
+
+
+@router.delete("/{sid}", response_model=ServiceModel)
+async def delete(sid: UUID) -> ServiceModel:
+    """Delete service.
+
+    Args:
+        sid (UUID): Service ID.
+
+    Returns:
+        ServiceModel: Deleted service.
+    """
+    return service.delete(sid)

@@ -82,7 +82,7 @@ def test_search_services(client, service_items):
     # search query text
     response = client.get("/services", params={"q": "service"})
 
-    assert response.status_code == 200 #noqa
+    assert response.status_code == 200  # noqa
 
 
 def test_update_service(client, service_document):
@@ -97,5 +97,15 @@ def test_update_service(client, service_document):
     response = client.put(f"/services/{current_document['id']}", json=next_document)
     next_document_response = response.json()
 
-    assert response.status_code == 200 #noqa
+    assert response.status_code == 200  # noqa
     assert next_document_response["name"] == next_document["name"]
+
+
+def test_delete_service(client, service_document):
+    """Test service update operation."""
+    response = client.post("/services", json=service_document)
+    current_document = response.json()
+
+    response = client.delete(f"/services/{current_document['id']}")
+
+    assert response.status_code == 200  # noqa

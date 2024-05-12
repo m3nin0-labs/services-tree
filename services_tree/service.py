@@ -129,3 +129,21 @@ def update(sid: UUID, document: ServiceModel) -> ServiceModel:
         session.refresh(current_service)
 
     return current_service
+
+
+def delete(sid: UUID) -> ServiceModel:
+    """Delete a service.
+
+    Args:
+        sid (UUID): Service ID.
+
+    Returns:
+        None
+    """
+    current_service = read(sid)
+
+    with Session() as session:
+        session.delete(current_service)
+        session.commit()
+
+    return current_service
