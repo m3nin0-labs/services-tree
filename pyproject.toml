@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "services-tree"
 version = "0.1.0"
-description = ""
+description = "Services Tree is a simple, yet powerful REST API designed to manage my homelab services"
 authors = ["Felipe Carlos <efelipecarlos@gmail.com>"]
 license = "MIT"
 readme = "README.md"
